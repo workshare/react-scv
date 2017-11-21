@@ -8,11 +8,7 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
 
-const CWD = process.cwd();
-const PACKAGE = require(path.join(CWD, 'package.json'));
-const APP_SRC_FILE = path.join(CWD, PACKAGE["react-scv"].appBuildEntry);
-const SRC = path.dirname(APP_SRC_FILE);
-const BUILD = path.join(CWD, 'build/app');
+const {CWD, BUILD, PACKAGE, APP_SRC_FILE, RULES_EXCLUDE, RULES_INCLUDE} = require('./constants');
 
 const applyCoreConfig = require('./webpack.core');
 const applyAssetsConfig = require('./webpack.assets');
@@ -26,7 +22,7 @@ module.exports = function (config, cursors) {
     //devtool: 'source-map', //note: not working in conjunction with UglifyJsPlugin, see UglifyJsPlugin configuration below
     entry: [APP_SRC_FILE],
     output: {
-      path: BUILD,
+      path: path.join(BUILD, 'app'),
       filename: 'app.js'
     },
     module: {
@@ -34,7 +30,8 @@ module.exports = function (config, cursors) {
         cursors.push('eslint-rule', {
           test: /\.jsx?$/,
           enforce: "pre",
-          include: [SRC],
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'eslint-loader',
           options: {
             configFile: overrides.filePath(path.join(__dirname, 'eslint.prod.js')),
@@ -45,7 +42,7 @@ module.exports = function (config, cursors) {
     },
     plugins: [
       cursors.push('clean-webpack-plugin',
-        new CleanWebpackPlugin([BUILD], {
+        new CleanWebpackPlugin([path.join(BUILD, 'app')], {
           root: CWD,
           exclude: ['app-dll.js', 'app-dll-manifest.json'],
           verbose: true,
@@ -61,6 +58,8 @@ module.exports = function (config, cursors) {
         new webpack.optimize.UglifyJsPlugin({
           compress: {warnings: false},
           output: {comments: false},
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           //sourceMap: true //needed because of http://stackoverflow.com/questions/41942811/webpack-2-devtool-not-working
         })
       ),

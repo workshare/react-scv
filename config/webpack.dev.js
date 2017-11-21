@@ -7,11 +7,8 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
 
-const CWD = process.cwd();
-const PACKAGE = require(path.join(CWD, 'package.json'));
-const SRC_FILE = path.join(CWD, PACKAGE["react-scv"].appBuildEntry);
-const DEV_SERVER = PACKAGE["react-scv"].devServer || {};
-const SRC = path.dirname(SRC_FILE);
+const {CWD, PACKAGE, APP_SRC_FILE, RULES_EXCLUDE, RULES_INCLUDE, DEV_SERVER} = require('./constants');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
@@ -24,7 +21,7 @@ module.exports = function (config, cursors) {
   config = applyAssetsConfig(config, cursors, {inline: false});
 
   return merge(config, {
-    entry: ['babel-polyfill', 'whatwg-fetch', SRC_FILE],
+    entry: ['babel-polyfill', 'whatwg-fetch', APP_SRC_FILE],
     devtool: 'source-map',
     plugins: [
       cursors.push('html-webpack-plugin',
@@ -70,7 +67,8 @@ module.exports = function (config, cursors) {
         cursors.push('eslint-rule', {
           test: /\.jsx?$/,
           enforce: "pre",
-          include: [SRC],
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'eslint-loader',
           options: {
             configFile: overrides.filePath(path.join(__dirname, 'eslint.dev.js')),

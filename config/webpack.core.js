@@ -1,17 +1,10 @@
 'use strict';
 
 const DefinePlugin = require('webpack').DefinePlugin;
-const path = require('path');
-const CWD = process.cwd();
-const BUILD = path.join(CWD, 'build');
-const CWD_NODE_MODULES = path.join(CWD, 'node_modules');
-const NODE_MODULES = path.join(__dirname, '../node_modules');
-const PACKAGE = require(path.join(CWD, 'package.json'));
-const SRC_FILE = path.join(CWD, PACKAGE["react-scv"].appBuildEntry);
-const SRC = path.dirname(SRC_FILE);
-const TESTS = path.join(CWD, 'tests');
 const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin');
 const merge = require('webpack-merge');
+
+const {BUILD, CWD_NODE_MODULES, NODE_MODULES, RULES_EXCLUDE, RULES_INCLUDE} = require('./constants');
 
 module.exports = function (config, cursors) {
 
@@ -50,6 +43,8 @@ module.exports = function (config, cursors) {
       rules: [
         cursors.push('source-map-rule', {
           test: /\.jsx?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           enforce: "pre",
           use: [
             {loader: 'source-map-loader'}
@@ -57,6 +52,8 @@ module.exports = function (config, cursors) {
         }),
         cursors.push('style-rule', {
           test: /\.s?css$/, // alternative *** : ^(?:(?:[^\.\s]+\.)(?!module))+s?css$
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           use: [
             {loader: 'style-loader'},
             {loader: 'css-loader'},
@@ -65,6 +62,8 @@ module.exports = function (config, cursors) {
         }),
         cursors.push('style-module-rule', {
           test: /\.s?cssm$/, // alternative *** : \.module\.s?css$
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           use: [
             {loader: 'style-loader'},
             {
@@ -80,8 +79,8 @@ module.exports = function (config, cursors) {
         }),
         cursors.push('javascript-rule', {
           test: /\.jsx?$/,
-          include: [SRC, TESTS],
-          exclude: /(node_modules|bower_components)/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           use: [
             {
               loader: 'babel-loader',
