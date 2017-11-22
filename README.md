@@ -55,13 +55,13 @@ Running `npm run build` will produce
 - A folder `build/app` containing your web application. Serve the content of this folder on a web server and enjoy your app in production.
 - A folder `build/umd` containing the transpiled code of your library.
 
-## What if I don't care about the web application part of the build?
+## What if I only care about the web application part of the build?
 
-You can delete the file `src/app.js` and forget about it, from now on, you will only get the UMD part when running `npm run build`
+You can use `npm run build:app` instead of `npm run build`
 
-## What if I don't care about the library part of the build?
+## What if I only care about the library part of the build?
 
-You can delete the file `src/module/index.js` and forget about it, from now on, you will only get the "React web application" part when running `npm run build`
+You can use `npm run build:umd` instead of `npm run build`
 
 ## Info about your new project contents
 
