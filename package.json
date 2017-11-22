@@ -32,13 +32,14 @@
       }
     },
     {
-      "name": "build",
-      "description": "Render the application to static assets",
-      "environment": "production",
-      "options": {
-        "--umdBuildConfig [file]": "Specify an alternative webpack configuration to use for the build of the UMD",
-        "--appBuildConfig [file]": "Specify an alternative webpack configuration to use for the build of the app"
-      }
+      "name": "build:app",
+      "description": "Build the application as static assets",
+      "environment": "production"
+    },
+    {
+      "name": "build:umd",
+      "description": "Build the application as an UMD",
+      "environment": "production"
     },
     {
       "name": "test",
@@ -50,7 +51,7 @@
     },
     {
       "name": "dll",
-      "description": "used internally by react-scv to make the startup time of the dev server faster"
+      "description": "used internally by react-scv to make the startup time of the dev server and the app build faster"
     }
   ],
   "repository": {

@@ -16,7 +16,9 @@
     }
   },
   "scripts": {
-    "build": "react-scv build",
+    "build": "react-scv build:app && react-scv build:umd",
+    "build:app": "react-scv build:app",
+    "build:umd": "react-scv build:umd",
     "start": "react-scv start",
     "test": "react-scv test",
     "test:debug": "node --inspect-brk ./node_modules/react-scv/bin/react-scv test --runInBand",
