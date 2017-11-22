@@ -8,10 +8,12 @@ const JEST_FILE_MOCK = path.join(__dirname, '../utils/fileMock.js');
 const ENZYME_SETUP = path.join(__dirname, 'enzyme.js');
 const RAF_POLYFILL = require.resolve('raf/polyfill');
 const ROOT = path.join(CWD, 'tests');
+const SRC = path.join(CWD, 'src');
 
 module.exports = {
   verbose: true,
   rootDir: ROOT,
+  roots: [SRC, ROOT],
   transform: {".*": JEST_BABEL_TRANSFORMER},
   collectCoverageFrom: ["src/**/*.js", "!**/node_modules/**", "!**/vendor/**"],
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)(spec|test).js?(x)', '**/*+(_spec|_test).js?(x)'],
