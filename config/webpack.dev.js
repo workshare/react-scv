@@ -7,10 +7,9 @@ const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
 
-const {CWD, PACKAGE, APP_SRC_FILE, RULES_EXCLUDE, RULES_INCLUDE, DEV_SERVER} = require('./constants');
+const {PACKAGE, APP_SRC_FILE, RULES_EXCLUDE, RULES_INCLUDE, DEV_SERVER} = require('./constants');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 
 const applyCoreConfig = require('./webpack.core');
 const applyAssetsConfig = require('./webpack.assets');
@@ -31,13 +30,6 @@ module.exports = function (config, cursors) {
           xhtml: true
         }, PACKAGE["react-scv"].html || {}))
       ),
-      cursors.push('add-asset-html-webpack-plugin',
-        new AddAssetHtmlWebpackPlugin({
-          filepath: path.join(CWD, 'build/dev/app-dll.js'),
-          includeSourcemap: false,
-          hash: true,
-        })
-      ),
       cursors.push('commons-chunk-plugin',
         new webpack.optimize.CommonsChunkPlugin({
           name: 'vendor',
@@ -54,12 +46,6 @@ module.exports = function (config, cursors) {
       cursors.push('no-emit-on-errors-plugin',
         // https://github.com/MoOx/eslint-loader#noerrorsplugin
         new webpack.NoEmitOnErrorsPlugin()
-      ),
-      cursors.push('dll-reference-plugin',
-        new webpack.DllReferencePlugin({
-          context: '.',
-          manifest: require(path.join(CWD, 'build/dev/app-dll-manifest.json'))
-        })
       )
     ],
     module: {

@@ -3,7 +3,6 @@
 const overrides = require('../src/overrides');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 const webpack = require('webpack');
@@ -44,14 +43,7 @@ module.exports = function (config, cursors) {
       cursors.push('clean-webpack-plugin',
         new CleanWebpackPlugin([path.join(BUILD, 'app')], {
           root: CWD,
-          exclude: ['app-dll.js', 'app-dll-manifest.json'],
           verbose: true,
-        })
-      ),
-      cursors.push('dll-reference-plugin',
-        new webpack.DllReferencePlugin({
-          context: '.',
-          manifest: require(path.join(CWD, 'build/app/app-dll-manifest.json'))
         })
       ),
       cursors.push('uglify-js-plugin',
@@ -69,14 +61,7 @@ module.exports = function (config, cursors) {
           hash: true,
           xhtml: true
         }, PACKAGE["react-scv"].html || {}))
-      ),
-      cursors.push('add-asset-html-webpack-plugin',
-        new AddAssetHtmlWebpackPlugin({
-          filepath: path.join(CWD, 'build/app/app-dll.js'),
-          includeSourcemap: false,
-          hash: true,
-        })
-      ),
+      )
     ]
   });
 

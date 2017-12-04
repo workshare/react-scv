@@ -48,10 +48,6 @@
       "options": {
         "other arguments": "any valid Jest argument can be used e.g 'npm run test -- --watch'"
       }
-    },
-    {
-      "name": "dll",
-      "description": "used internally by react-scv to make the startup time of the dev server and the app build faster"
     }
   ],
   "repository": {
@@ -71,7 +67,6 @@
   "author": "Marcello Montemagno (http://www.curlycoding.com/)",
   "license": "MIT",
   "dependencies": {
-    "add-asset-html-webpack-plugin": "2.1.2",
     "babel-core": "6.14.0",
     "babel-eslint": "6.1.2",
     "babel-loader": "7.0.0",

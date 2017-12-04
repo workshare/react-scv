@@ -21,8 +21,7 @@
     "build:umd": "react-scv build:umd",
     "start": "react-scv start",
     "test": "react-scv test",
-    "test:debug": "node --inspect-brk ./node_modules/react-scv/bin/react-scv test --runInBand",
-    "postinstall": "react-scv dll"
+    "test:debug": "node --inspect-brk ./node_modules/react-scv/bin/react-scv test --runInBand"
   },
   "keywords": [],
   "devDependencies": {

@@ -29,7 +29,6 @@ Is important to notice that your new project doesn't contain any configuration f
 
 - React
 - Webpack
-- Webpack DLLs
 - Webpack proxy (useful to avoid CORS during development)
 - react-hot-loader 3.0
 - Babel with ES2015, Stage 0 and React presets
@@ -166,7 +165,6 @@ A subset of the configuration files can be extended/overridden, Here the files y
 - `webpack.app.js` //used to build your web application during `build`
 - `webpack.dev.js` //used to serve your application during `start`
 - `webpack.umd.js` //used to build your library UMD during `build`
-- `dlls.js` //the npm dependencies that will be included in the webpack DLLs during `build` and `start`
 - `eslint.dev.js` //used to lint the code during `start`
 - `eslint.prod.js` //used to lint the code during `build`
 - `jest.js` //used to run the tests during `test`
@@ -230,7 +228,7 @@ module.exports = function (config, cursors) {
 };
 ```
 
-### overriding/extending `jest.js`, `eslint.dev.js`, `eslint.prod.js` or `dlls.js`:
+### overriding/extending `jest.js`, `eslint.dev.js` or `eslint.prod.js`:
 
 - create a file with the same name under `yourProjectRoot/react-scv/`
 - the new file must export an object
