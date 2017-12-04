@@ -51,8 +51,6 @@ module.exports = function (config, cursors) {
         new webpack.optimize.UglifyJsPlugin({
           compress: {warnings: false},
           output: {comments: false},
-          include: RULES_INCLUDE,
-          exclude: RULES_EXCLUDE,
           sourceMap: true //needed because of http://stackoverflow.com/questions/41942811/webpack-2-devtool-not-working
         })
       )
