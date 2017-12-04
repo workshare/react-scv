@@ -20,7 +20,7 @@ module.exports = function (config, cursors) {
   config = applyAssetsConfig(config, cursors, {inline: false});
 
   return merge(config, {
-    entry: ['babel-polyfill', 'whatwg-fetch', APP_SRC_FILE],
+    entry: ['@babel/polyfill', 'whatwg-fetch', APP_SRC_FILE],
     devtool: 'source-map',
     plugins: [
       cursors.push('html-webpack-plugin',
