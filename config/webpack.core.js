@@ -33,11 +33,11 @@ module.exports = function (config, cursors) {
       )
     ],
     resolve: {
-      modules: [NODE_MODULES, CWD_NODE_MODULES],
+      modules: [CWD_NODE_MODULES, NODE_MODULES],
       extensions: ['.js', '.jsx', '.json']
     },
     resolveLoader: {
-      modules: [NODE_MODULES, CWD_NODE_MODULES]
+      modules: [CWD_NODE_MODULES, NODE_MODULES]
     },
     module: {
       rules: [
