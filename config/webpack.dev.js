@@ -19,6 +19,7 @@ module.exports = function(config, cursors) {
   config = applyAssetsConfig(config, cursors, { inline: false })
 
   return merge(config, {
+    mode: 'development',
     optimization: {
       splitChunks: {
         chunks: 'all',
