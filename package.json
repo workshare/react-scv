@@ -1,6 +1,6 @@
 {
   "name": "react-scv",
-  "version": "0.0.17",
+  "version": "0.0.18-alpha",
   "description": "Create React modules with zero configuration needed",
   "files": [
     "bin",
@@ -94,6 +94,7 @@
     "file-loader": "3.0.1",
     "flow-bin": "0.89.0",
     "flow-status-webpack-plugin": "git@github.com:marcellomontemagno/flow-status-webpack-plugin#bc495c6",
+    "hoek": "6.1.2",
     "html-webpack-plugin": "3.2.0",
     "identity-obj-proxy": "3.0.0",
     "imports-loader": "0.8.0",
@@ -118,8 +119,7 @@
     "webpack-node-externals": "1.7.2",
     "whatwg-fetch": "3.0.0",
     "yeoman-environment": "2.3.4",
-    "yeoman-generator": "3.2.0",
-    "hoek": "6.1.2"
+    "yeoman-generator": "3.2.0"
   },
   "devDependencies": {
     "yeoman-test": "1.9.1"
