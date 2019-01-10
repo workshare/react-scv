@@ -1,5 +1,4 @@
 'use strict';
-
 const DefinePlugin = require('webpack').DefinePlugin;
 const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin');
 const merge = require('webpack-merge');
@@ -88,7 +87,6 @@ module.exports = function (config, cursors) {
                 babelrc: false,
                 presets: [
                   ['@babel/preset-env', {"modules": false}], //{ "modules": false } is needed to make react-hot-loader work
-                  '@babel/preset-stage-0',
                   '@babel/preset-react'
                 ],
                 plugins: [
