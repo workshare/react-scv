@@ -2,16 +2,16 @@
 
 module.exports = {
   root: true,
-  failOnWarning: false,
-  failOnError: true,
   plugins: [
     'react'
   ],
   settings: {
     react: {
       pragma: 'React',
-      version: '16.0'
-    }
+      version: '16.7'
+    },
+    failOnWarning: false,
+    failOnError: true,
   },
   extends: [
     'eslint:recommended',
@@ -25,7 +25,7 @@ module.exports = {
   },
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 10,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
