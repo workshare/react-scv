@@ -32,12 +32,12 @@
       }
     },
     {
-      "name": "build:app",
+      "name": "build-app",
       "description": "Build the application as static assets",
       "environment": "production"
     },
     {
-      "name": "build:umd",
+      "name": "build-umd",
       "description": "Build the application as an UMD",
       "environment": "production"
     },

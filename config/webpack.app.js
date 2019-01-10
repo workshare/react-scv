@@ -18,7 +18,11 @@ module.exports = function (config, cursors) {
   config = applyAssetsConfig(config, cursors, {inline: false});
 
   return merge(config, {
-    //devtool: 'source-map', //note: not working in conjunction with UglifyJsPlugin, see UglifyJsPlugin configuration below
+    mode: 'production',
+    optimization: {
+      minimize: true
+    },
+    devtool: 'source-map',
     entry: [APP_SRC_FILE],
     output: {
       path: path.join(BUILD, 'app'),
@@ -44,15 +48,6 @@ module.exports = function (config, cursors) {
         new CleanWebpackPlugin([path.join(BUILD, 'app')], {
           root: CWD,
           verbose: true,
-        })
-      ),
-      cursors.push('uglify-js-plugin',
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {warnings: false},
-          output: {comments: false},
-          //include: RULES_INCLUDE, //todo: this has to work, try to fix it
-          exclude: RULES_EXCLUDE,
-          //sourceMap: true //needed because of http://stackoverflow.com/questions/41942811/webpack-2-devtool-not-working
         })
       ),
       cursors.push('html-webpack-plugin',
