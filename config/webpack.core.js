@@ -51,8 +51,6 @@ module.exports = function (config, cursors) {
         }),
         cursors.push('style-rule', {
           test: /\.s?css$/, // alternative *** : ^(?:(?:[^\.\s]+\.)(?!module))+s?css$
-          include: RULES_INCLUDE,
-          exclude: RULES_EXCLUDE,
           use: [
             {loader: 'style-loader'},
             {loader: 'css-loader'},
@@ -61,8 +59,6 @@ module.exports = function (config, cursors) {
         }),
         cursors.push('style-module-rule', {
           test: /\.s?cssm$/, // alternative *** : \.module\.s?css$
-          include: RULES_INCLUDE,
-          exclude: RULES_EXCLUDE,
           use: [
             {loader: 'style-loader'},
             {

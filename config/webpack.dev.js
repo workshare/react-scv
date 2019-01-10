@@ -21,12 +21,13 @@ module.exports = function(config, cursors) {
   return merge(config, {
     mode: 'development',
     optimization: {
+      noEmitOnErrors: true,
       splitChunks: {
-        chunks: 'all',
+        chunks: 'all'
       },
     },
     entry: ['@babel/polyfill', 'whatwg-fetch', APP_SRC_FILE],
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     plugins: [
       cursors.push(
         'html-webpack-plugin',
@@ -41,13 +42,7 @@ module.exports = function(config, cursors) {
           ),
         ),
       ),
-      cursors.push('named-modules-plugin', new webpack.NamedModulesPlugin()),
       cursors.push('hot-module-replacement-plugin', new webpack.HotModuleReplacementPlugin()),
-      cursors.push(
-        'no-emit-on-errors-plugin',
-        // https://github.com/MoOx/eslint-loader#noerrorsplugin
-        new webpack.NoEmitOnErrorsPlugin(),
-      ),
     ],
     module: {
       rules: [
@@ -62,9 +57,8 @@ module.exports = function(config, cursors) {
             options: {
               configFile: overrides.filePath(path.join(__dirname, 'eslint.dev.js')),
               useEslintrc: false,
-              quiet: true,
               failOnWarning: false,
-              failOnError: false,
+              failOnError: true,
               emitWarning: true,
             },
           },
@@ -82,9 +76,15 @@ module.exports = function(config, cursors) {
 
         hot: true,
 
-        // Display only errors to reduce the amount of output.
-        stats: 'errors-only',
-        //stats: { colors: true, maxModules: 1000 }
+        stats: {
+          all: false,
+          modules: true,
+          maxModules: 0,
+          errors: true,
+          warnings: false,
+          moduleTrace: false,
+          errorDetails: true
+         },
 
         disableHostCheck: true,
       },
