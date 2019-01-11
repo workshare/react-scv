@@ -22,7 +22,7 @@ module.exports = function (config, cursors) {
     optimization: {
       minimize: true
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     entry: [APP_SRC_FILE],
     output: {
       path: path.join(BUILD, 'app'),

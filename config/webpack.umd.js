@@ -18,7 +18,11 @@ module.exports = function (config, cursors) {
   config = applyAssetsConfig(config, cursors, {inline: true});
 
   return merge(config, {
-    devtool: 'source-map', //note: not working in conjunction with UglifyJsPlugin, see UglifyJsPlugin configuration below
+    mode: 'production',
+    optimization: {
+      minimize: true
+    },
+    devtool: 'source-map',
     entry: [UMD_SRC_FILE],
     output: {
       path: path.join(BUILD, 'umd'),
@@ -47,13 +51,6 @@ module.exports = function (config, cursors) {
       cursors.push('clean-webpack-plugin',
         new CleanWebpackPlugin([path.join(BUILD, 'umd')], {root: CWD})
       ),
-      cursors.push('uglify-js-plugin',
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {warnings: false},
-          output: {comments: false},
-          sourceMap: true //needed because of http://stackoverflow.com/questions/41942811/webpack-2-devtool-not-working
-        })
-      )
     ]
   });
 
