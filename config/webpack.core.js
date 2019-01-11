@@ -1,6 +1,6 @@
 'use strict';
 const DefinePlugin = require('webpack').DefinePlugin;
-const ProgressBarWebpackPlugin = require('progress-bar-webpack-plugin');
+const ProgressBarWebpackPlugin = require('webpackbar');
 const merge = require('webpack-merge');
 
 const {BUILD, CWD_NODE_MODULES, NODE_MODULES, RULES_EXCLUDE, RULES_INCLUDE} = require('./constants');
@@ -28,7 +28,7 @@ module.exports = function (config, cursors) {
         new DefinePlugin(ENV)
       ),
       cursors.push('progress-bar-webpack-plugin',
-        new ProgressBarWebpackPlugin({clear: false})
+        new ProgressBarWebpackPlugin()
       )
     ],
     resolve: {
