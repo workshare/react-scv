@@ -83,7 +83,7 @@ module.exports = function(config, cursors) {
           errors: true,
           warnings: false,
           moduleTrace: false,
-          errorDetails: true
+          errorDetails: false
          },
 
         disableHostCheck: true,

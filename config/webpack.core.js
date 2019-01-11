@@ -87,10 +87,11 @@ module.exports = function (config, cursors) {
                 ],
                 plugins: [
                   'react-hot-loader/babel',
-                  "@babel/plugin-proposal-function-bind",
 
                   // https://github.com/babel/babel/blob/master/packages/babel-preset-stage-0/README.md
-                  
+                  // Stage 0
+                  "@babel/plugin-proposal-function-bind",
+
                   // Stage 1
                   "@babel/plugin-proposal-export-default-from",
                   "@babel/plugin-proposal-logical-assignment-operators",
