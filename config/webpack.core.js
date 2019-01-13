@@ -28,7 +28,9 @@ module.exports = function (config, cursors) {
         new DefinePlugin(ENV)
       ),
       cursors.push('progress-bar-webpack-plugin',
-        new ProgressBarWebpackPlugin()
+        new ProgressBarWebpackPlugin({
+          color: 'blue'
+        })
       )
     ],
     resolve: {
