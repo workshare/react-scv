@@ -7,6 +7,7 @@ const JEST_STYLE_MOCK = path.join(__dirname, '../utils/styleMock.js');
 const JEST_FILE_MOCK = path.join(__dirname, '../utils/fileMock.js');
 const ENZYME_SETUP = path.join(__dirname, 'enzyme.js');
 const RAF_POLYFILL = require.resolve('raf/polyfill');
+const BABEL_POLYFILL = require.resolve('@babel/polyfill')
 const ROOT = path.join(CWD, 'tests');
 const SRC = path.join(CWD, 'src');
 
@@ -23,5 +24,5 @@ module.exports = {
     "\\.(css|less|scss)$": JEST_STYLE_MOCK,
     "\\.(cssm|scssm)$": "identity-obj-proxy"
   },
-  setupFiles: [RAF_POLYFILL, ENZYME_SETUP]
+  setupFiles: [RAF_POLYFILL, ENZYME_SETUP, BABEL_POLYFILL]
 }
