@@ -22,7 +22,12 @@ let registerCliCommand = (command) => {
   }
 
   let cliCommand = cli.command(name, command.description);
-
+  
+   // Required for jest options e.g. `npm test -- --watch`
+  if (name.toLowerCase().includes('jest')) {
+    cliCommand.allowUnknownOptions();
+  }
+  
   Object
   .keys(options)
   .map(option => {

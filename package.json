@@ -46,6 +46,8 @@
       "description": "Run the project's tests",
       "environment": "test",
       "options": {
+        "--watch": "Start Jest in watch mode",
+        "--runInBand": "Run tests serially",
         "other arguments": "any valid Jest argument can be used e.g 'npm run test -- --watch'"
       }
     }
