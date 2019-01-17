@@ -16,8 +16,8 @@ module.exports = {
   rootDir: ROOT,
   roots: [SRC, ROOT],
   transform: {".*": JEST_BABEL_TRANSFORMER},
-  collectCoverageFrom: ["src/**/*.js", "!**/node_modules/**", "!**/vendor/**"],
-  testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)(spec|test).js?(x)', '**/*+(_spec|_test).js?(x)'],
+  collectCoverageFrom: ["src/**/*.(t|j)s?(x)", "!**/node_modules/**", "!**/vendor/**"],
+  testMatch: ['**/__tests__/**/*.(t|j)s?(x)', '**/?(*.)(spec|test).(t|j)s?(x)', '**/*+(_spec|_test).(t|j)s?(x)'],
   moduleDirectories: [CWD_NODE_MODULES, NODE_MODULES],
   moduleNameMapper: {
     "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": JEST_FILE_MOCK,

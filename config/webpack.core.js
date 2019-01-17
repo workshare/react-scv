@@ -35,7 +35,7 @@ module.exports = function (config, cursors) {
     ],
     resolve: {
       modules: [CWD_NODE_MODULES, NODE_MODULES],
-      extensions: ['.js', '.jsx', '.json']
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
     },
     resolveLoader: {
       modules: [CWD_NODE_MODULES, NODE_MODULES]
@@ -43,7 +43,7 @@ module.exports = function (config, cursors) {
     module: {
       rules: [
         cursors.push('source-map-rule', {
-          test: /\.jsx?$/,
+          test: /\.(t|j)sx?$/,
           include: RULES_INCLUDE,
           exclude: RULES_EXCLUDE,
           enforce: "pre",
@@ -75,7 +75,7 @@ module.exports = function (config, cursors) {
           ]
         }),
         cursors.push('javascript-rule', {
-          test: /\.jsx?$/,
+          test: /\.(t|j)sx?$/,
           include: RULES_INCLUDE,
           exclude: RULES_EXCLUDE,
           use: [
