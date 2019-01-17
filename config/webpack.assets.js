@@ -13,6 +13,8 @@ module.exports = function (config, cursors, options) {
       rules: [
         cursors.push('woff-rule', {
           test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 10000,
@@ -21,6 +23,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('ttf-rule', {
           test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 10000,
@@ -29,6 +33,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('svg-rule', {
           test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 10000,
@@ -37,6 +43,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('png-rule', {
           test: /\.(png)$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 8192
@@ -44,6 +52,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('jpg-rule', {
           test: /\.(jpe?g)$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 8192
@@ -51,6 +61,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('gif-rule', {
           test: /\.(gif)$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader',
           options: {
             limit: inline ? undefined : 8192
@@ -58,10 +70,14 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('ico-rule', {
           test: /\.ico(\?v=\d+\.\d+\.\d+)?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'url-loader'
         }),
         cursors.push('html-rule', {
           test: /\.html$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'file-loader',
           options: {
             name: '[name].[ext]'
@@ -69,6 +85,8 @@ module.exports = function (config, cursors, options) {
         }),
         cursors.push('eot-rule', {
           test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+          include: RULES_INCLUDE,
+          exclude: RULES_EXCLUDE,
           loader: 'file-loader'
         })
       ]
