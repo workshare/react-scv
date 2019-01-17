@@ -1,7 +1,8 @@
 module.exports = require('babel-jest').createTransformer({
   presets: [
     require.resolve('@babel/preset-env'),
-    require.resolve('@babel/preset-react')
+    require.resolve('@babel/preset-react'),
+    require.resolve('@babel/preset-typescript')
   ],
   "plugins": [
     // Stage 0

@@ -85,7 +85,8 @@ module.exports = function (config, cursors) {
                 babelrc: false,
                 presets: [
                   ['@babel/preset-env', {"modules": false}], //{ "modules": false } is needed to make react-hot-loader work
-                  '@babel/preset-react'
+                  '@babel/preset-react',
+                  '@babel/preset-typescript'
                 ],
                 plugins: [
                   'react-hot-loader/babel',
