@@ -24,5 +24,6 @@ module.exports = {
     "\\.(css|less|scss)$": JEST_STYLE_MOCK,
     "\\.(cssm|scssm)$": "identity-obj-proxy"
   },
-  setupFiles: [RAF_POLYFILL, ENZYME_SETUP, BABEL_POLYFILL]
+  setupFiles: [RAF_POLYFILL, ENZYME_SETUP, BABEL_POLYFILL],
+  snapshotSerializers: [require.resolve('enzyme-to-json/serializer')]
 }
