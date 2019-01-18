@@ -7,6 +7,7 @@ const CWD = process.cwd();
 const PACKAGE = require(path.join(CWD, 'package.json'));
 const APP_BUILD_ENTRY = path.join(CWD, PACKAGE["react-scv"].appBuildEntry);
 const middleware = require('../../src/middleware');
+const chalk = require('chalk');
 
 module.exports = (args, done) => {
 
@@ -19,7 +20,7 @@ module.exports = (args, done) => {
 
 function buildApp () {
   if (fs.existsSync(APP_BUILD_ENTRY)) {
-    console.log(' --- building the app --- ');
+    console.log(chalk.blue('≡ ') + chalk.magenta('Building Application') + chalk.blue(' ≡'));
     const config = middleware.applyMiddleware(require.resolve('../../config/webpack.app'));
     return webpackBuild(config);
   }

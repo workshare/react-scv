@@ -12,7 +12,7 @@ const FLOW_EXE = path.join(CWD, 'node_modules/.bin/flow');
 const FLOW_TARGET = path.join(CWD, '/node_modules/react-scv/config/');
 const webpack = require('webpack');
 const middleware = require('../../src/middleware');
-const chalk = require('chalk')
+const chalk = require('chalk');
 
 module.exports = (args, done) => {
 
@@ -31,7 +31,7 @@ module.exports = (args, done) => {
     'webpack/hot/dev-server'
   );
 
-  console.log(chalk.blue(' --- Starting dev server, and API proxy --- '));
+  console.log(chalk.blue('≡ ') + chalk.magenta('Starting dev server and API proxy') + chalk.blue(' ≡'));
 
   //todo experimental feature
   if (flow) {
