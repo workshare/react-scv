@@ -87,7 +87,11 @@ module.exports = function (config, cursors, options) {
           test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
           include: RULES_INCLUDE,
           exclude: RULES_EXCLUDE,
-          loader: 'file-loader'
+          loader: 'file-loader',
+          options: {
+            limit: inline ? undefined : 10000,
+            mimetype: 'application/font-eot'
+          }
         })
       ]
     }
