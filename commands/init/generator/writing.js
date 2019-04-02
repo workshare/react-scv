@@ -5,6 +5,7 @@ module.exports = function() {
   const copyFiles = [
     '.gitignore',
     '.npmignore',
+    '.eslintrc.js',
   ];
   const copyTemplates = [
     'package.json',

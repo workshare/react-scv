@@ -5,7 +5,8 @@ module.exports = {
   failOnWarning: false,
   failOnError: true,
   plugins: [
-    'react'
+    'react',
+    'react-hooks'
   ],
   settings: {
     react: {
@@ -35,7 +36,9 @@ module.exports = {
     }
   },
   rules: {
-    'react/prop-types': [0]
+    'react/prop-types': [0],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   globals: {
     process: true
