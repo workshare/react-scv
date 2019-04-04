@@ -6,6 +6,8 @@ const merge = require('webpack-merge');
 
 const {BUILD, CWD_NODE_MODULES, NODE_MODULES, RULES_EXCLUDE, RULES_INCLUDE} = require('./constants');
 
+const babelPlugins = require('./babel.plugins');
+
 module.exports = function (config, cursors) {
 
   const ENV = Object
@@ -88,12 +90,9 @@ module.exports = function (config, cursors) {
                 babelrc: false,
                 presets: [
                   ['@babel/preset-env', {"modules": false}], //{ "modules": false } is needed to make react-hot-loader work
-                  '@babel/preset-stage-0',
                   '@babel/preset-react'
                 ],
-                plugins: [
-                  'react-hot-loader/babel'
-                ]
+                plugins: ['react-hot-loader/babel'].concat(babelPlugins)
               }
             },
           ],
