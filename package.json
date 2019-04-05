@@ -1,6 +1,6 @@
 {
   "name": "react-scv",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Create React modules with zero configuration needed",
   "files": [
     "bin",
