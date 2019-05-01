@@ -2,8 +2,6 @@
 
 module.exports = {
   root: true,
-  failOnWarning: false,
-  failOnError: true,
   plugins: [
     'react',
     'react-hooks'
