@@ -19,7 +19,7 @@ module.exports = (args, done) => {
 
 function buildUMD () {
   if (fs.existsSync(UMD_BUILD_ENTRY)) {
-    console.log(chalk.blue('≡ ') + chalk.magenta('Building UMD') + chalk.blue(' ≡'));
+    console.log(chalk.magenta('■ ') + chalk.magenta('Building UMD') + chalk.magenta(' ■'));
     const config = middleware.applyMiddleware(require.resolve('../../config/webpack.umd'));
     return webpackBuild(config);
   }

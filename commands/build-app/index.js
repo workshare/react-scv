@@ -20,7 +20,7 @@ module.exports = (args, done) => {
 
 function buildApp () {
   if (fs.existsSync(APP_BUILD_ENTRY)) {
-    console.log(chalk.blue('≡ ') + chalk.magenta('Building Application') + chalk.blue(' ≡'));
+    console.log(chalk.magenta('■ ') + chalk.magenta('Building Application') + chalk.magenta(' ■'));
     const config = middleware.applyMiddleware(require.resolve('../../config/webpack.app'));
     return webpackBuild(config);
   }

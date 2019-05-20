@@ -45,7 +45,8 @@ module.exports = function (config, cursors) {
     },
     plugins: [
       cursors.push('clean-webpack-plugin',
-        new CleanWebpackPlugin([path.join(BUILD, 'app')], {
+        new CleanWebpackPlugin({
+          cleanOnceBeforeBuildPatterns: [path.join(BUILD, 'app')],
           root: CWD,
           verbose: true,
         })
