@@ -7,6 +7,8 @@ const JEST_STYLE_MOCK = path.join(__dirname, '../utils/styleMock.js');
 const JEST_FILE_MOCK = path.join(__dirname, '../utils/fileMock.js');
 const ENZYME_SETUP = path.join(__dirname, 'enzyme.js');
 const RAF_POLYFILL = require.resolve('raf/polyfill');
+const REGENERATOR_POLYFILL = require.resolve('regenerator-runtime/runtime');
+const COREJS_POLYFILL = require.resolve('core-js/stable');
 const ROOT = path.join(CWD, 'tests');
 const SRC = path.join(CWD, 'src');
 
@@ -42,6 +44,6 @@ module.exports = {
     "\\.(cssm|scssm)$": "identity-obj-proxy"
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  setupFiles: [RAF_POLYFILL, ENZYME_SETUP],
+  setupFiles: [REGENERATOR_POLYFILL, COREJS_POLYFILL, RAF_POLYFILL, ENZYME_SETUP],
   snapshotSerializers: [require.resolve('enzyme-to-json/serializer')]
 }
