@@ -23,7 +23,7 @@ module.exports = function (config, cursors) {
       minimize: true
     },
     devtool: 'source-map',
-    entry: ['@babel/polyfill', 'whatwg-fetch', APP_SRC_FILE],
+    entry: ['corejs/stable', 'regenerator-runtime/runtime', 'whatwg-fetch', APP_SRC_FILE],
     output: {
       path: path.join(BUILD, 'app'),
       filename: 'app.js'

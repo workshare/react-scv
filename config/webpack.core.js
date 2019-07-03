@@ -84,7 +84,7 @@ module.exports = function (config, cursors) {
               options: {
                 babelrc: false,
                 presets: [
-                  ['@babel/preset-env', {"modules": false}], //{ "modules": false } is needed to make react-hot-loader work
+                  ['@babel/preset-env', {"modules": false, corejs: 3}], //{ "modules": false } is needed to make react-hot-loader work
                   '@babel/preset-react',
                   '@babel/preset-typescript'
                 ],

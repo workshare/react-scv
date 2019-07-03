@@ -26,7 +26,7 @@ module.exports = function(config, cursors) {
         chunks: 'all'
       },
     },
-    entry: ['@babel/polyfill', 'whatwg-fetch', APP_SRC_FILE],
+    entry: ['core-js/stable', 'regenerator-runtime/runtime', 'whatwg-fetch', APP_SRC_FILE],
     devtool: 'eval-source-map',
     plugins: [
       cursors.push(
